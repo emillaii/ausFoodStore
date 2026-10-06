@@ -1,0 +1,25 @@
+{
+  "name": "aus-food-store",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Aus Food Store — customer storefront + admin portal prototype (Phase 1)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "privateDemo": true,
+  "scripts": {
+    "setup": "npm install",
+    "dev": "npm run dev -w @aus/mock-api & npm run dev -w @aus/storefront & npm run dev -w @aus/admin & wait",
+    "dev:server": "npm run dev -w @aus/mock-api",
+    "dev:store": "npm run dev -w @aus/storefront",
+    "dev:admin": "npm run dev -w @aus/admin",
+    "demo:reset": "npm run reset -w @aus/mock-api",
+    "build": "npm run build -w @aus/storefront && npm run build -w @aus/admin",
+    "typecheck": "tsc -p apps/storefront --noEmit && tsc -p apps/admin --noEmit && tsc -p apps/mock-api --noEmit",
+    "test": "npm run test -w @aus/mock-api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
